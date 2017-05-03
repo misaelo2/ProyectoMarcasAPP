@@ -15,8 +15,8 @@ def identificate():
 @route('/callback')
 def hacerpeticion() :	
 	code=request.query.code
-	ruta=request.url
 	url_base="https://connect.bbva.com/token"
-	payload={"grant_type":"authorization_code","code":code,"redirect_uri":"/callback"}
-	return "<p>%s</p>" %ruta
+	payload={"grant_type":"authorization_code","redirect_uri":"https://bbuveame.herokuapp.com/callback","code":code}
+	r=requests.POST(url_base,params=payload)
+	return r.text
 run(host='0.0.0.0', port=argv[1] )
