@@ -25,7 +25,7 @@ def hacerpeticion() :
 	diccionario={"Authorization":"Basic "+encode,"Content-Type": "application/json"}
 	r=requests.post(url_base,params=payload,headers=diccionario)
 	json=r.json()
-	json.set_cookie("access_token", json["access_token"],secret='token de autorizacion')
+	Response.set_cookie("access_token",json["access_token"],secret='token de autorizacion')
 	redirect('/')
 
 
