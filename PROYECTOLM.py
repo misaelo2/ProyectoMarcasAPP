@@ -10,7 +10,10 @@ Oauthsecret=os.environ["SECRET"]
 
 @route('/')
 def identificate():
-	return template("index.tpl",APPID=ID) 
+	if  request.get_cookie("access_token", secret='token de autorizacion'):
+		return "funciona las cookies"
+	else 
+		return template("index.tpl",APPID=ID) 
 
 
 @route('/callback')
@@ -21,5 +24,15 @@ def hacerpeticion() :
 	encode=base64.b64encode(ID+":"+Oauthsecret)
 	diccionario={"Authorization":"Basic "+encode,"Content-Type": "application/json"}
 	r=requests.post(url_base,params=payload,headers=diccionario)
-	return r.text
+	json=r.json()
+	response.set_cookie("access_token", json["access_token"],secret='token de autorizacion')
+	redirect('/')
+
+
+
+
+
+
+	cabecerar2={"Content-Type": "application/json","Authorization":"jwt "+token["access_token"]}
+	r2=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts")
 run(host='0.0.0.0', port=argv[1] )
