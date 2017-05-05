@@ -12,7 +12,7 @@ Oauthsecret=os.environ["SECRET"]
 def identificate():
 	if  request.get_cookie("access_token", secret='token de autorizacion'):
 		return "funciona las cookies"
-	else 
+	else :
 		return template("index.tpl",APPID=ID) 
 
 
