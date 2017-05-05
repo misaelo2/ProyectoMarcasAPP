@@ -5,7 +5,7 @@ from sys import argv
 import base64
 
 ID=os.environ["APPID"]
-Oauthsecret=OS.environ["SECRET"]
+Oauthsecret=os.environ["SECRET"]
 
 
 @route('/')
