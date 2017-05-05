@@ -1,5 +1,5 @@
 import requests
-from bottle import template,run,route,request
+from bottle import template,run,route,request,redirect,run
 import os
 from sys import argv
 import base64
