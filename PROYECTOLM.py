@@ -11,9 +11,11 @@ Oauthsecret=os.environ["SECRET"]
 @route('/')
 def identificate():
 	if  request.get_cookie("access_token", secret='token de autorizacion'):
-		return "funciona las cookies"
+		return request.get_cookie("access_token", secret='token de autorizacion')
 	else :
 		return template("index.tpl",APPID=ID) 
+	cabecerar2={"Content-Type": "application/json","Authorization":"jwt "+token["access_token"]}
+	r2=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts")
 
 
 @route('/callback')
@@ -29,10 +31,8 @@ def hacerpeticion() :
 	redirect('/')
 
 
+@route('/static/<filepath:path>')
+def server_static(filepath) :
+	return static_file(filepath , root='static')
 
-
-
-
-	cabecerar2={"Content-Type": "application/json","Authorization":"jwt "+token["access_token"]}
-	r2=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts")
 run(host='0.0.0.0', port=argv[1] )
