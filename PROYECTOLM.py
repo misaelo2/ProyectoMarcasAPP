@@ -11,11 +11,12 @@ Oauthsecret=os.environ["SECRET"]
 @route('/')
 def identificate():
 	if  request.get_cookie("access_token", secret='token de autorizacion'):
-		return request.get_cookie("access_token", secret='token de autorizacion')
+		token=request.get_cookie("access_token", secret='token de autorizacion')
+		cabecerar2={"Content-Type": "application/json","Authorization":"jwt "+token}
+		r2=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts")
+		return r2.text
 	else :
 		return template("index.tpl",APPID=ID) 
-	cabecerar2={"Content-Type": "application/json","Authorization":"jwt "+token["access_token"]}
-	r2=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts")
 
 
 @route('/callback')
