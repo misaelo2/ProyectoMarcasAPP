@@ -35,7 +35,7 @@
 	<%
 	for elem in {{listacuentas}} :
 	%>	
-	  <li><strong><a href={{elem["links"]["detail"]["href"]}}>elem["id"]</a></strong></li>
+	  <li><strong><a href="https://bbuveame.herokuapp.com/{{elem['links']['detail']['href'][-45:]}}">elem['id']</a></strong></li>
         %end 
 	</ul>
       </div>
