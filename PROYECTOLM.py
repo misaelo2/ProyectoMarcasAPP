@@ -14,7 +14,9 @@ def identificate():
 		token=request.get_cookie("access_token", secret='token de autorizacion')
 		cabecerar2={"Accept": "application/json","Authorization":"jwt "+token}
 		r2=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts",headers=cabecerar2)
-		return r2.text
+	 	respuesta=r.json()
+	 	cuentas=respuesta["data"]["accounts"]
+	 	return template("mostrarcuentas.tpl",listacuentas=cuentas)
 	else :
 		return template("index.tpl",APPID=ID) 
 
@@ -37,3 +39,6 @@ def server_static(filepath) :
 	return static_file(filepath , root='static')
 
 run(host='0.0.0.0', port=argv[1] )
+
+
+#requests.put(https://apis.bbva.com/manager-sbx/v2/data,headers="jwt "+access_token)

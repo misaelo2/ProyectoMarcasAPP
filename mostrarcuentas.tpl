@@ -16,7 +16,7 @@
         <div id="logo_text">
           <!-- class="logo_colour", allows you to change the colour of the text -->
           <h1>Bienvenido a <span class="logo_colour">BBuveame</span></h1>
-          <h2>Impresionante,Epico y Legen....espera un momento...dario</h2>
+          <h2>sigue siendo Impresionante y Epico</h2>
         </div>
       </div>
       <div id="menubar">
@@ -30,16 +30,15 @@
     <div id="site_content">
 
         <!-- insert the page content here -->
-        <h1>Bienvenido a la Aplicacion BBuveame , aqui podras acceder a la informacion de las cuentas del Banco BBVA.</h1>
-        <p>Antes de comenzar , Recuerda que esta aplicacion es de prueba y solo es valida con unos usuarios inventados que pone a disposicion la API de BBVA</p>
-        <p>Para Conceder Permiso a esta aplicacion a los distintos usuarios puedes acceder <a href= https://connect.bbva.com/sandboxconnect?client_id={{APPID}}&response_type=code&redirect_uri=https://bbuveame.herokuapp.com/callback >aqui</a>.</p>
-        <p>A continuacion , Te dejo una lista de los distintos usuarios que puedes consultar (recuerda que para todos la contraseña es "123456")</p>
+        <h1>Este es el listado de tus cuentas , haz click en ellas si deseas mirar los movimientos </h1>
         <ul>
-          <li><strong>00000034B</li>
-          <li>00001000B</li>
-          <li>46757760W</li>
-	  <li>78000000P</strong></li>
-        </ul>
+	<%
+	for elem in {{listacuentas}} :
+		for x in elem["detail"] :
+	%>	
+	  <li><strong><a href={{x["href"]}}>elem["id"]</a></strong></li>
+        %end 
+	</ul>
       </div>
     </div>
 
