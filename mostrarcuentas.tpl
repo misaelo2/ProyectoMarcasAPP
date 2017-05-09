@@ -32,12 +32,10 @@
         <!-- insert the page content here -->
         <h1>Este es el listado de tus cuentas , haz click en ellas si deseas mirar los movimientos </h1>
         <ul>
-	<%
-	for elem in {{listacuentas}} :
-	%>	
-	  <li><strong><a href="https://bbuveame.herokuapp.com/{{elem['links']['detail']['href'][-45:]}}">elem['id']</a></strong></li>
+        %for elem in listacuentas :	
+        <li><strong><a href="https://bbuveame.herokuapp.com/{{elem['links']['detail']['href'][-45:]}}">elem['id']</a></strong></li>
         %end 
-	</ul>
+	       </ul>
       </div>
     </div>
 
