@@ -38,8 +38,8 @@ def hacerpeticion() :
 def server_static(filepath) :
 	return static_file(filepath , root='static')
 
-@route('/cuentas')
-def transaccion() :
+@route('/cuentas/<IBAN>') 
+def transaccion(IBAN) :
 	return "Estas son las transacciones "
 
 run(host='0.0.0.0', port=argv[1] )
