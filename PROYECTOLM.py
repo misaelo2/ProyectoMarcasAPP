@@ -38,10 +38,11 @@ def hacerpeticion() :
 def server_static(filepath) :
 	return static_file(filepath , root='static')
 
-run(host='0.0.0.0', port=argv[1] )
-
 @route('/cuentas')
 def transaccion() :
 	return "Estas son las transacciones "
+
+run(host='0.0.0.0', port=argv[1] )
+
 
 #requests.put(https://apis.bbva.com/manager-sbx/v2/data,headers="jwt "+access_token)
