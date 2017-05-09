@@ -14,7 +14,7 @@ def identificate():
 		token=request.get_cookie("access_token", secret='token de autorizacion')
 		cabecerar2={"Accept": "application/json","Authorization":"jwt "+token}
 		r2=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts",headers=cabecerar2)
-	 	respuesta=r.json()
+	 	respuesta=r2.json()
 	 	cuentas=respuesta["data"]["accounts"]
 	 	return template("mostrarcuentas.tpl",listacuentas=cuentas)
 	else :
