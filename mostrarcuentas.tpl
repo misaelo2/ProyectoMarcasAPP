@@ -33,7 +33,7 @@
         <h1>Este es el listado de tus cuentas , haz click en ellas si deseas mirar los movimientos </h1>
         <ul>
         %for elem in listacuentas :	
-        <li><strong><a href="https://bbuveame.herokuapp.com/{{elem['links']['detail']['href'][-45:]}}">elem['id']</a></strong></li>
+        <li><strong><a href="https://bbuveame.herokuapp.com/{{elem['links']['detail']['href'][-45:]}}">{{elem['id']}}<p>{{elem["balance"]}}</a></strong></li>
         %end 
 	       </ul>
       </div>
