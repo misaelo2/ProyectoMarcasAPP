@@ -34,9 +34,8 @@
         <ul>
 	<%
 	for elem in {{listacuentas}} :
-		for x in elem["detail"] :
 	%>	
-	  <li><strong><a href={{x["href"]}}>elem["id"]</a></strong></li>
+	  <li><strong><a href={{elem["links"]["detail"]["href"]}}>elem["id"]</a></strong></li>
         %end 
 	</ul>
       </div>
