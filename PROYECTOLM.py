@@ -40,8 +40,8 @@ def server_static(filepath) :
 
 run(host='0.0.0.0', port=argv[1] )
 
-@route('/cuentas/<IBAN>')
-def transaccion(IBAN) :
+@route('/cuentas')
+def transaccion() :
 	return "Estas son las transacciones "
 
 #requests.put(https://apis.bbva.com/manager-sbx/v2/data,headers="jwt "+access_token)
