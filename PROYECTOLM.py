@@ -45,7 +45,7 @@ def transaccion(IBAN) :
 def movimientos(cuentaid) :
 	token =request.get_cookie("access_token", secret='token de autorizacion')
 	cabecerar4={"Accept": "application/json","Authorization":"jwt "+token}
-	r4=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions")
+	r4=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions",headers=cabecerar4)
 	return r4.text
 
 
