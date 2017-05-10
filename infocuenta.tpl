@@ -32,8 +32,8 @@
         <!-- insert the page content here -->
         <h1>Informacion de la cuenta : {{cuenta}} </h1>
         <ul>	
-        <li>IBAN : {{info['data']['account']['formats"]['iban']}}</li>
-	      <li>CCC : {{ info["data"]["account"]["formats"]["ccc"]}}</li>li>
+        <li>IBAN : {{info["data"]["account"]["formats"]["iban"]}}</li>
+	      <li>CCC : {{ info["data"]["account"]["formats"]["ccc"]}}</li>
         <li>Saldo : {{info["data"]["account"]["balance"]}}  {{info["data"]["account"]["currency"]}}</li>
         </ul>
       </div>

@@ -33,11 +33,6 @@ def hacerpeticion() :
 	response.set_cookie("access_token",json["access_token"],secret='token de autorizacion')
 	redirect('/')
 
-
-@route('/static/<filepath:path>')
-def server_static(filepath) :
-	return static_file(filepath , root='static')
-
 @route('/cuentas/<IBAN>') 
 def transaccion(IBAN) :
 	token =request.get_cookie("access_token", secret='token de autorizacion')
@@ -45,6 +40,11 @@ def transaccion(IBAN) :
 	r3=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+IBAN,headers=cabecerar3)
 	json=r3.json()
 	return template("infocuenta.tpl",info=json,cuenta=IBAN)
+
+@route('/static/<filepath:path>')
+def server_static(filepath) :
+	return static_file(filepath , root='static')
+
 
 run(host='0.0.0.0', port=argv[1] )
 
