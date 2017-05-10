@@ -43,7 +43,12 @@ def transaccion(IBAN) :
 
 @route('/cuentas/movimientos/<cuentaid>')
 def movimientos(cuentaid) :
-	return "Todo correcto"
+	token =request.get_cookie("access_token", secret='token de autorizacion')
+	cabecerar4={"Accept": "application/json","Authorization":"jwt "+token}
+	r4=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions")
+	return r4.text
+
+
 @route('/static/<filepath:path>')
 def server_static(filepath) :
 	return static_file(filepath , root='static')
