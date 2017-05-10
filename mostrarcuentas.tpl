@@ -30,11 +30,10 @@
     <div id="site_content">
 
         <!-- insert the page content here -->
-        <h1>Este es el listado de tus cuentas , haz click en ellas si deseas mirar los movimientos </h1>
+        <h1>Este es el listado de tus cuentas , haz click en ellas si deseas obtener informacion mas detallada  </h1>
         <ul>
         %for elem in listacuentas :	
         <li><strong><a href="https://bbuveame.herokuapp.com/cuentas/{{elem['links']['detail']['href'][-45:]}}">{{elem['id']}}</a></strong></li>
-        <p>Saldo Actual :   <strong>{{elem['balance']}}</strong>        {{elem['currency']}}</p>
         %end 
 	       </ul>
       </div>

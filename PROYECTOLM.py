@@ -44,7 +44,7 @@ def transaccion(IBAN) :
 	cabecerar3={"Accept": "application/json","Authorization":"jwt "+token}
 	r3=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+IBAN,headers=cabecerar3)
 	json=r3.json()
-	return json 
+	return template("infocuenta.tpl",info=json,cuenta=IBAN)
 
 run(host='0.0.0.0', port=argv[1] )
 
