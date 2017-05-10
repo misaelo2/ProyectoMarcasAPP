@@ -36,7 +36,7 @@
       </TR>
       %for elem in movimientos :
       <TR>
-        <TD>{{elem["id"]}}</TD>{{elem["amount"]}} {{elem["currency"]}} <TD>{{elem["operationDate"].split("T")[0]}}</TD> <TD>{{elem["description"]}}</TD>
+        <TD>{{elem["id"]}}</TD><TD>{{elem["amount"]}} {{elem["currency"]}}</TD><TD>{{elem["operationDate"].split("T")[0]}}</TD><TD>{{elem["description"]}}</TD>
       %end 
       </TR>
     </TABLE>  
