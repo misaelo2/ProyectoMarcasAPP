@@ -30,18 +30,15 @@
     <div id="site_content">
 
         <!-- insert the page content here -->
- <TABLE >
+    <TABLE BORDER>
+      <TR>
+        <TH>ID</TH> <TH>Cantidad</TH> <TH>Fecha</TH> <TH>Concepto</TH>
+      </TR>
       %for elem in movimientos :
-  <TR><TH>ID</TH>
-    <TD>Item 1</TD> <TD>Item 2</TD> <TD>Item 3</TD></TR>
-  <TR><TH>Cantidad</TH>
-    <TD>Item 4</TD> <TD>Item 5</TD> <TD>Item 6</TD></TR>
-  <TR><TH>Fecha</TH>
-    <TD>Item 7</TD> <TD>Item 8</TD> <TD>Item 9</TD></TR>
-   <TR><TH>Concepto</TH> 
-    <TD>Item 7</TD> <TD>Item 8</TD> <TD>Item 9</TD></TR>
-</TABLE>
-
+      <TR>
+        <TD>elem["id"]</TD>elem["amount"] elem["currency"] <TD>elem["operationDate"].split("T")[0]</TD> <TD>elem["description"]</TD>
+      </TR>
+    </TABLE>  
       </div>
     </div>
 </body>
