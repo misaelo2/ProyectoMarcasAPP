@@ -40,7 +40,11 @@ def server_static(filepath) :
 
 @route('/cuentas/<IBAN>') 
 def transaccion(IBAN) :
-	return "Estas son las transacciones "
+	token =request.get_cookie("access_token", secret='token de autorizacion')
+	cabecerar3={"Accept": "application/json","Authorization":"jwt "+token}
+	r3=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+IBAN,headers=cabecerar3)
+	json=r3.json()
+	return json 
 
 run(host='0.0.0.0', port=argv[1] )
 

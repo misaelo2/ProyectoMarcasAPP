@@ -34,7 +34,7 @@
         <ul>
         %for elem in listacuentas :	
         <li><strong><a href="https://bbuveame.herokuapp.com/cuentas/{{elem['links']['detail']['href'][-45:]}}">{{elem['id']}}</a></strong></li>
-        <p>Saldo Actual :   <strong>{{elem['balance']}}</strong></p>
+        <p>Saldo Actual :   <strong>{{elem['balance']}}</strong>        {{elem['currency']}}</p>
         %end 
 	       </ul>
       </div>
