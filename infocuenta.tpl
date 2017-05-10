@@ -36,8 +36,8 @@
 	      <li>CCC : {{ info["data"]["account"]["formats"]["ccc"]}}</li>
         <li>Saldo : {{info["data"]["account"]["balance"]}}  {{info["data"]["account"]["currency"]}}</li>
         </ul>
+      <h3><a href="https://bbuveame.herokuapp.com/cuentas/movimientos/{{cuenta}}">Consulta las Transacciones</a></h3>
       </div>
     </div>
-
 </body>
 </html>

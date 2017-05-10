@@ -41,6 +41,9 @@ def transaccion(IBAN) :
 	json=r3.json()
 	return template("infocuenta.tpl",info=json,cuenta=IBAN)
 
+@route('/cuentas/movimientos/<cuentaid>')
+def movimientos(cuentaid) :
+	return "Todo correcto"
 @route('/static/<filepath:path>')
 def server_static(filepath) :
 	return static_file(filepath , root='static')
