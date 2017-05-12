@@ -36,11 +36,14 @@ def hacerpeticion() :
 @route('/cuentas/<IBAN>') 
 def transaccion(IBAN) :
 	token =request.get_cookie("access_token", secret='token de autorizacion')
-	cabecerar3={"Accept": "application/json","Authorization":"jwt "+token}
-	r3=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+IBAN,headers=cabecerar3)
-	json=r3.json()
-	return template("infocuenta.tpl",info=json,cuenta=IBAN)
-
+	if token : 
+		token =request.get_cookie("access_token", secret='token de autorizacion')
+		cabecerar3={"Accept": "application/json","Authorization":"jwt "+token}
+		r3=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+IBAN,headers=cabecerar3)
+		json=r3.json()
+		return template("infocuenta.tpl",info=json,cuenta=IBAN)
+	else 
+		return "ERROr , necesitas estar logueado "
 @route('/cuentas/movimientos/<cuentaid>')
 def movimientos(cuentaid) :
 	token =request.get_cookie("access_token", secret='token de autorizacion')

@@ -22,7 +22,7 @@
       <div id="menubar">
         <ul id="menu">
           <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
-          <li class="selected"><a href="index.html">Inicio</a></li>
+          <li class="selected"><a href="https://connect.bbva.com/sandboxconnect?client_id={{APPID}}&response_type=code&redirect_uri=https://bbuveame.herokuapp.com/callback">Log In</a></li>
         </ul>
       </div>
     </div>
@@ -32,7 +32,6 @@
         <!-- insert the page content here -->
         <h1>Bienvenido a la Aplicacion BBuveame , aqui podras acceder a la informacion de las cuentas del Banco BBVA.</h1>
         <p>Antes de comenzar , Recuerda que esta aplicacion es de prueba y solo es valida con unos usuarios inventados que pone a disposicion la API de BBVA</p>
-        <p>Para Conceder Permiso a esta aplicacion a los distintos usuarios puedes acceder <a href= https://connect.bbva.com/sandboxconnect?client_id={{APPID}}&response_type=code&redirect_uri=https://bbuveame.herokuapp.com/callback >aqui</a>.</p>
         <p>A continuacion , Te dejo una lista de los distintos usuarios que puedes consultar (recuerda que para todos la contraseña es "123456")</p>
         <ul>
           <li><strong>00000034B</li>
