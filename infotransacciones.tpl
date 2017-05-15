@@ -40,8 +40,8 @@
       %end 
       </TR>
     </TABLE>  
-      </div>
             <a href="https://bbuveame.herokuapp.com/"> Inicio </a>
+      </div>
 
     </div>
 </body>
