@@ -22,7 +22,7 @@
       <div id="menubar">
         <ul id="menu">
           <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
-          <li class="selected"><a href="index.html">Inicio</a></li>
+          <li class="selected"><a href="https://bbuveame.herokuapp.com/desloguearse">Log Off</a></li>
         </ul>
       </div>
     </div>
@@ -37,6 +37,7 @@
         <li>Saldo : {{info["data"]["account"]["balance"]}}  {{info["data"]["account"]["currency"]}}</li>
         </ul>
       <h3><a href="https://bbuveame.herokuapp.com/cuentas/movimientos/{{cuenta}}">Consulta las Transacciones</a></h3>
+      <a href="https://bbuveame.herokuapp.com/"> Inicio </a>
       </div>
     </div>
 </body>
