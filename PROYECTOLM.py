@@ -60,7 +60,7 @@ def movimientos(cuentaid) :
 def desloguearse() :
 	token =request.get_cookie("access_token", secret='token de autorizacion')
 	cabecerar5={"Authorization":"jwt "+token}
-	r5=requests.put("https://apis.bbva.com/manager-sbx/v2/data",headers=cabecerar5 )
+	r5=requests.put("https://apis.bbva.com/manager-sbx/v1/data",headers=cabecerar5 )
 	redirect('/')
 
 @route('/static/<filepath:path>')
