@@ -22,7 +22,7 @@
       <div id="menubar">
         <ul id="menu">
           <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
-          <li class="selected"><a href="index.html">Inicio</a></li>
+          <li class="selected"><a href="https://bbuveame.herokuapp.com/desloguearse">Log Off</a></li>
         </ul>
       </div>
     </div>

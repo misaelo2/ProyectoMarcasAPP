@@ -14,9 +14,12 @@ def identificate():
 		token=request.get_cookie("access_token", secret='token de autorizacion')
 		cabecerar2={"Accept": "application/json","Authorization":"jwt "+token}
 		r2=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts",headers=cabecerar2)
-	 	respuesta=r2.json()
-	 	cuentas=respuesta["data"]["accounts"]
-	 	return template("mostrarcuentas.tpl",listacuentas=cuentas)
+	 	if r2.status_code==200 :
+		 	respuesta=r2.json()
+		 	cuentas=respuesta["data"]["accounts"]
+		 	return template("mostrarcuentas.tpl",listacuentas=cuentas)
+		else :
+			return template("index.tpl")
 	else :
 		return template("index.tpl",APPID=ID) 
 
@@ -42,8 +45,8 @@ def transaccion(IBAN) :
 		r3=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+IBAN,headers=cabecerar3)
 		json=r3.json()
 		return template("infocuenta.tpl",info=json,cuenta=IBAN)
-	else :
-		return "ERROr , necesitas estar logueado "
+	else :	
+		return "ERROR , necesitas estar logueado "
 @route('/cuentas/movimientos/<cuentaid>')
 def movimientos(cuentaid) :
 	token =request.get_cookie("access_token", secret='token de autorizacion')
@@ -52,6 +55,13 @@ def movimientos(cuentaid) :
 	json=r4.json()
 	return template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"])
 
+
+@route('/desloguearse')
+def desloguearse() :
+	token =request.get_cookie("access_token", secret='token de autorizacion')
+	cabecerar5={"Authorization":"jwt "+token}
+	r5=requests.put("https://apis.bbva.com/manager-sbx/v2/data",headers=cabecerar5 )
+	redirect('/')
 
 @route('/static/<filepath:path>')
 def server_static(filepath) :
