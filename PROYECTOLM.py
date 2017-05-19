@@ -48,9 +48,10 @@ def transaccion(IBAN) :
 def movimientos(cuentaid) :
 	token =request.get_cookie("access_token", secret='token de autorizacion')
 	cabecerar4={"Accept": "application/json","Authorization":"jwt "+token}
-	r4=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions?pageSize=10",headers=cabecerar4)
+	r4=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions?pageSize=10&pageKey=3",headers=cabecerar4)
 	json=r4.json()
-	return template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"])
+	return json
+#template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"])
 
 
 @route('/desloguearse')
