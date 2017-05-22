@@ -58,7 +58,12 @@ def movimientos(cuentaid) :
 	if fechafrom and fechato :
 		r4=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions?dateFrom="+fechafrom+"&dateTo="+fechato,headers=cabecerar4)
 		json=r4.json()
-		return template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"])
+		return json 
+#		template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"])
+	elif fechafrom is false  and fechato is false :
+		r4=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions?dateFrom="+fechafrom+"&dateTo="+fechato,headers=cabecerar4)
+		json=r4.json()
+		return json 
 	else :
 		return "<h1>Necesitas introducir las dos fechas, o ninguna</h1>"
 
