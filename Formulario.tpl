@@ -33,7 +33,7 @@
         <form action='/cuentas/movimientos/{{cuenta}}' method='post'>
         <p>Desde<input type="date" min="2007-01-01" name="dateFrom"></p>
         <p>Hacia<input type="date" min="2007-01-01" name="dateTo"></p>
-        <p><input type="submit" name="Enviar"></p>
+        <p><input type="submit" value="Enviar"></p>
        </form> 
 
             <a href="https://bbuveame.herokuapp.com/"> Inicio </a>
