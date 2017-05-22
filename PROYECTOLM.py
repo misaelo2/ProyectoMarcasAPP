@@ -60,7 +60,7 @@ def movimientos(cuentaid) :
 		json=r4.json()
 		return json 
 #		template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"])
-	elif fechafrom is false  and fechato is false :
+	elif not fechafrom and not fechato :
 		r4=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions?dateFrom="+fechafrom+"&dateTo="+fechato,headers=cabecerar4)
 		json=r4.json()
 		return json 
