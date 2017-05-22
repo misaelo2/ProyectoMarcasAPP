@@ -58,15 +58,18 @@ def movimientos(cuentaid) :
 	if fechafrom and fechato :
 		r4=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions?dateFrom="+fechafrom+"&dateTo="+fechato,headers=cabecerar4)
 		json=r4.json()
-		return template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"])
+		return json
+#		return template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"])
 	elif fechafrom :
 		r4=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions?dateFrom="+fechafrom,headers=cabecerar4)
 		json=r4.json()
-		return template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"])
+		return json
+#		return template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"])
 	else :
 		r4=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions",headers=cabecerar4)
 		json=r4.json()
-		return template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"])
+		return json
+#		return template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"])
 
 @route('/desloguearse')
 def desloguearse() :
