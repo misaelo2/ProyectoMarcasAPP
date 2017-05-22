@@ -44,14 +44,29 @@ def transaccion(IBAN) :
 		return template("infocuenta.tpl",info=json,cuenta=IBAN)
 	else :	
 		return "ERROR , necesitas estar logueado "
-@route('/cuentas/movimientos/<cuentaid>')
+
+@route('/cuentas/movimientos/<cuentaid>',method='GET')
+def formulario(cuentaid) :
+	return template('Formulario.tpl',cuenta=cuentaid)
+
+@route('/cuentas/movimientos/<cuentaid>',method='POST')
 def movimientos(cuentaid) :
+	fechafrom=request.forms.get('dateFrom')
+	fechato=request.forms.get('dateTo')
 	token =request.get_cookie("access_token", secret='token de autorizacion')
 	cabecerar4={"Accept": "application/json","Authorization":"jwt "+token}
-	r4=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions",headers=cabecerar4)
-	json=r4.json()
-	return template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"])
-
+	if fechafrom and fechato :
+		r4=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions?dateFrom="+fechafrom+"&dateTo="+fechato,headers=cabecerar4)
+		json=r4.json()
+		return template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"])
+	elif fechafrom :
+		r4=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions?dateFrom="+fechafrom,headers=cabecerar4)
+		json=r4.json()
+		return template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"])
+	else :
+		r4=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions",headers=cabecerar4)
+		json=r4.json()
+		return template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"])
 
 @route('/desloguearse')
 def desloguearse() :
@@ -69,4 +84,3 @@ def server_static(filepath) :
 run(host='0.0.0.0', port=argv[1] )
 
 
-#requests.put(https://apis.bbva.com/manager-sbx/v2/data,headers="jwt "+access_token)
