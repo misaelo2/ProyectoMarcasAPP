@@ -60,7 +60,7 @@ def movimientos(cuentaid) :
 		json=r4.json()
 		return template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"])
 	else :
-		return <h1>Necesitas introducir las dos fechas, o ninguna</h1>
+		return "<h1>Necesitas introducir las dos fechas, o ninguna</h1>"
 
 @route('/desloguearse')
 def desloguearse() :
