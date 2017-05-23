@@ -61,14 +61,17 @@ def movimientos(cuentaid) :
 		if r4.status_code==200 :
 			return 	template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"])
 		else :
-			return "<h1>La fecha son incorrecta</h1>"
+			return "<h1>Las fechas son incorrectas</h1>"
 	elif not fechafrom and not fechato :
 		r4=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions?pageSize=5",headers=cabecerar4)
 		json=r4.json()
-		return  json
-		#template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"])
+		return template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"])
 	else :	
 		return "<h1>Necesitas introducir las dos fechas, o ninguna</h1>"
+
+@route('/cuentas/movimientos/<cuentaid>/<fechafrom>/<fechato>/<numpag>')
+def movimientosconvariables(cuentaid,fechafrom,fechato,numpag) :
+	return ' Esta es la pagina dopnde estaran todo'
 
 @route('/desloguearse')
 def desloguearse() :
