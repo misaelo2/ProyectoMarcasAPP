@@ -59,19 +59,23 @@ def movimientos(cuentaid) :
 		r4=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions?dateFrom="+fechafrom+"&dateTo="+fechato,headers=cabecerar4)
 		json=r4.json()
 		if r4.status_code==200 :
-			return 	template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"])
+			return 	template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"],fechafrom=fechafrom,fechato=fechato,numpag=5)
 		else :
 			return "<h1>Las fechas son incorrectas</h1>"
 	elif not fechafrom and not fechato :
 		r4=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions?pageSize=5",headers=cabecerar4)
 		json=r4.json()
-		return template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"])
+		return template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"],fechafrom=fechafrom,fechato=fechato,numpag=5)
 	else :	
 		return "<h1>Necesitas introducir las dos fechas, o ninguna</h1>"
 
 @route('/cuentas/movimientos/<cuentaid>/<fechafrom>/<fechato>/<numpag>')
 def movimientosconvariables(cuentaid,fechafrom,fechato,numpag) :
-	return ' Esta es la pagina dopnde estaran todo'
+	token =request.get_cookie("access_token", secret='token de autorizacion')
+	cabecerar6={"Accept": "application/json","Authorization":"jwt "+token}
+	r6=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions?dateFrom="+fechafrom+"&dateTo="+fechato,headers=cabecerar6)
+	json=r6.json()
+	return json
 
 @route('/desloguearse')
 def desloguearse() :
