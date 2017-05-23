@@ -63,6 +63,8 @@ def movimientos(cuentaid) :
 		else :
 			return "<h1>Las fechas son incorrectas</h1>"
 	elif not fechafrom and not fechato :
+		fechafrom=0
+		fechato=0
 		r4=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions?pageSize=5",headers=cabecerar4)
 		json=r4.json()
 		return template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"],fechafrom=fechafrom,fechato=fechato,numpag=5)
