@@ -76,7 +76,7 @@ def movimientos(cuentaid) :
 def movimientosconvariables(cuentaid,fechafrom,fechato,numpag) :
 	token =request.get_cookie("access_token", secret='token de autorizacion')
 	cabecerar6={"Accept": "application/json","Authorization":"jwt "+token}
-	if numpag=0 :
+	if numpag==0 :
 		numpag=1
 	r6=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions?dateFrom="+fechafrom+"&dateTo="+fechato+"&pageSize=5"+"&pageKey="+numpag,headers=cabecerar6)
 	json=r6.json()
