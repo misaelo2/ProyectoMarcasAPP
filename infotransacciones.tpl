@@ -40,7 +40,7 @@
       %end 
       </TR>
     </TABLE>  
-        <a href="https://bbuveame.herokuapp.com/cuentas/movimientos/<cuentaid>/<fechafrom>/<fechato>/<numpag>">Primera</a><a href="https://bbuveame.herokuapp.com/cuentas/movimientos/<cuentaid>/<fechafrom>/<fechato>/<numpag>">anterior</a><a href="https://bbuveame.herokuapp.com/cuentas/movimientos/<cuentaid>/<fechafrom>/<fechato>/<numpag>">siguiente</a><a href="https://bbuveame.herokuapp.com/cuentas/movimientos/<cuentaid>/<fechafrom>/<fechato>/<numpag>">Ultima</a>   
+        <a href="https://bbuveame.herokuapp.com/cuentas/movimientos/<cuentaid>/<fechafrom>/<fechato>/<numpag>">Primera  </a><a href="https://bbuveame.herokuapp.com/cuentas/movimientos/<cuentaid>/<fechafrom>/<fechato>/<numpag>">&lt;  </a><a href="https://bbuveame.herokuapp.com/cuentas/movimientos/<cuentaid>/<fechafrom>/<fechato>/<numpag>">&gt;  </a><a href="https://bbuveame.herokuapp.com/cuentas/movimientos/<cuentaid>/<fechafrom>/<fechato>/<numpag>">Ultima</a>   
 
 
         <a href="https://bbuveame.herokuapp.com/"> Inicio </a>
