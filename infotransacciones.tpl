@@ -34,15 +34,17 @@
       <TR>
         <TH>Nombre</TH> <TH>Cantidad</TH> <TH>Fecha</TH> <TH>Concepto</TH>
       </TR>
-      %for elem in movimientos :
+      %for elem in movimientos["data"]["accountTransactions"] :
       <TR>
         <TD>{{elem["subCategory"]["name"] }}</TD><TD>{{elem["amount"]}} {{elem["currency"]}}</TD><TD>{{elem["operationDate"].split("T")[0]}}</TD><TD>{{elem["description"]}}</TD>
       %end 
       </TR>
     </TABLE>  
-        <a href="https://bbuveame.herokuapp.com/cuentas/movimientos/{{cuentaid}}/{{fechafrom}}/{{fechato}}/5">Primera  </a><a href="https://bbuveame.herokuapp.com/cuentas/movimientos/{{cuentaid}}/{{fechafrom}}/{{fechato}}/5">&lt;  </a><a href="https://bbuveame.herokuapp.com/cuentas/movimientos/{{cuentaid}}/{{fechafrom}}/{{fechato}}/5">&gt;  </a><a href="https://bbuveame.herokuapp.com/cuentas/movimientos/{{cuentaid}}/{{fechafrom}}/{{fechato}}/5">Ultima</a>   
+        <a href="https://bbuveame.herokuapp.com/cuentas/movimientos/{{cuentaid}}/{{fechafrom}}/{{fechato}}/1
+        ">Primera  </a><a href="https://bbuveame.herokuapp.com/cuentas/movimientos/{{cuentaid}}/{{fechafrom}}/{{fechato}}/{{movimientos['pagination']['page']-1}}">&lt;  </a><a href="https://bbuveame.herokuapp.com/cuentas/movimientos/{{cuentaid}}/{{fechafrom}}/{{fechato}}/{{movimientos['pagination']['page']+1}}">&gt;  </a><a href="https://bbuveame.herokuapp.com/cuentas/movimientos/{{cuentaid}}/{{fechafrom}}/{{fechato}}/{{movimientos['pagination']['numPages']}}">Ultima</a>   
 
         <div> 
+        <p></p>
         <a href="https://bbuveame.herokuapp.com/"> Inicio </a>
         </div>     
       </div>
