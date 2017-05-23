@@ -68,7 +68,7 @@ def movimientos(cuentaid) :
 		fechato=time.strftime("%Y-%m-%d")
 		r4=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions?pageSize=5",headers=cabecerar4)
 		json=r4.json()
-		return template("infotransacciones.tpl",cuentaid=cuentaid,movimientos=json,fechafrom=fechafrom,fechato=fechato,numpag=5)
+		return template("infotransacciones.tpl",cuentaid=cuentaid,movimientos=json,fechafrom=fechafrom,fechato=fechato)
 	else :	
 		return "<h1>Necesitas introducir las dos fechas, o ninguna</h1>"
 
@@ -76,9 +76,11 @@ def movimientos(cuentaid) :
 def movimientosconvariables(cuentaid,fechafrom,fechato,numpag) :
 	token =request.get_cookie("access_token", secret='token de autorizacion')
 	cabecerar6={"Accept": "application/json","Authorization":"jwt "+token}
+	if numpag=0 :
+		numpag=1
 	r6=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions?dateFrom="+fechafrom+"&dateTo="+fechato+"&pageSize=5"+"&pageKey="+numpag,headers=cabecerar6)
 	json=r6.json()
-	return json
+	return template('infotransacciones.tpl',cuentaid=cuentaid,movimientos=json,fechafrom=fechafrom,fechato=fechato)
 
 @route('/desloguearse')
 def desloguearse() :
