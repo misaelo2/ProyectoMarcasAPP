@@ -49,7 +49,8 @@
            else 
             <a href="https://bbuveame.herokuapp.com/cuentas/movimientos/{{cuentaid}}/{{fechafrom}}/{{fechato}}/{{movimientos['pagination']['page']+1}}">&gt;  </a>
             <a href="https://bbuveame.herokuapp.com/cuentas/movimientos/{{cuentaid}}/{{fechafrom}}/{{fechato}}/{{movimientos['pagination']['numPages']}}">Ultima</a>   
-        %end> 
+        %>
+        %end 
 
         <div> 
         <p></p>
