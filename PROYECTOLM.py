@@ -61,7 +61,7 @@ def movimientos(cuentaid) :
 		json=r4.json()
 		if r4.status_code==206  :
 			return 	template("infotransacciones.tpl",cuentaid=cuentaid,movimientos=json,fechafrom=fechafrom,fechato=fechato)
-		elsif r4.status_code==200  : 
+		elif r4.status_code==200 : 
 			return template("simpleinfotransacciones.tpl",cuentaid=cuentaid,movimientos=json)
 		else :
 			return "<h1>Las fechas son incorrectas</h1>"
