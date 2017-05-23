@@ -59,7 +59,7 @@ def movimientos(cuentaid) :
 		r4=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions?dateFrom="+fechafrom+"&dateTo="+fechato,headers=cabecerar4)
 		json=r4.json()
 		if r4.status_code==200 :
-			return 	template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"],fechafrom=fechafrom,fechato=fechato,numpag=5)
+			return 	template("infotransacciones.tpl",cuentaid=cuentaid,movimientos=json["data"]["accountTransactions"],fechafrom=fechafrom,fechato=fechato,numpag=5)
 		else :
 			return "<h1>Las fechas son incorrectas</h1>"
 	elif not fechafrom and not fechato :
@@ -67,7 +67,7 @@ def movimientos(cuentaid) :
 		fechato=0
 		r4=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions?pageSize=5",headers=cabecerar4)
 		json=r4.json()
-		return template("infotransacciones.tpl",movimientos=json["data"]["accountTransactions"],fechafrom=fechafrom,fechato=fechato,numpag=5)
+		return template("infotransacciones.tpl",cuentaid=cuentaid,movimientos=json["data"]["accountTransactions"],fechafrom=fechafrom,fechato=fechato,numpag=5)
 	else :	
 		return "<h1>Necesitas introducir las dos fechas, o ninguna</h1>"
 
