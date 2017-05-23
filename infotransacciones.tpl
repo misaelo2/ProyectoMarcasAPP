@@ -23,6 +23,8 @@
         <ul id="menu">
           <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
           <li class="selected"><a href="https://bbuveame.herokuapp.com/desloguearse">Log Off</a></li>
+          <li class="selected"><a href="https://bbuveame.herokuapp.com/">Inicio</a></li>
+        
         </ul>
       </div>
     </div>
@@ -45,7 +47,6 @@
 
         <div> 
         <p></p>
-        <a href="https://bbuveame.herokuapp.com/"> Inicio </a>
         </div>     
       </div>
 
