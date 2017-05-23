@@ -3,6 +3,7 @@ from bottle import template,run,route,request,redirect,run,response,static_file
 import os
 from sys import argv
 import base64
+import time 
 
 ID=os.environ["APPID"]
 Oauthsecret=os.environ["SECRET"]
@@ -63,8 +64,8 @@ def movimientos(cuentaid) :
 		else :
 			return "<h1>Las fechas son incorrectas</h1>"
 	elif not fechafrom and not fechato :
-		fechafrom=""
-		fechato=""
+		fechafrom="2007-01-01"
+		fechato=time.strftime("%y/%m/%d")
 		r4=requests.get("https://apis.bbva.com/accounts-sbx/v1/me/accounts/"+cuentaid+"/transactions?pageSize=5",headers=cabecerar4)
 		json=r4.json()
 		return template("infotransacciones.tpl",cuentaid=cuentaid,movimientos=json["data"]["accountTransactions"],fechafrom=fechafrom,fechato=fechato,numpag=5)
