@@ -5,7 +5,7 @@
   <title>BBuveame</title>
   <meta name="description" content="website description" />
   <meta name="keywords" content="website keywords, website keywords" />
-  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" type="text/css" href="/static/style.css" />
 </head>
 
@@ -33,7 +33,7 @@
         <h1>Este es el listado de tus cuentas , haz click en ellas si deseas obtener informacion mas detallada  </h1>
         <ul>
         %for elem in listacuentas :	
-        <li><strong><a href="https://bbuveame.herokuapp.com/cuentas/{{elem['links']['detail']['href'][-45:]}}">{{elem['id']}}</a></strong></li>
+        <li><strong><a href="https://bbuveame.herokuapp.com/cuentas/{{elem['links']['detail']['href'][-45:]}}">{{elem['id']}}</a></li>
         %end 
 	       </ul>
       </div>
