@@ -23,6 +23,8 @@
         <ul id="menu">
           <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
           <li class="selected"><a href="https://bbuveame.herokuapp.com/desloguearse">Log Off</a></li>
+          <li class="selected"><a href="https://bbuveame.herokuapp.com/">Inicio</a></li>
+
         </ul>
       </div>
     </div>
@@ -30,13 +32,13 @@
     <div id="site_content">
 
         <!-- insert the page content here -->
+        <p>Introduce si quieres , las fechas para filtrar las operaciones .</p>
         <form action='/cuentas/movimientos/{{cuenta}}' method='post'>
         <p>Desde<input type="date" min="2007-01-01" name="dateFrom"></p>
         <p>Hacia<input type="date" min="2007-01-01" name="dateTo"></p>
         <p><input type="submit" value="Enviar"></p>
        </form> 
 
-            <a href="https://bbuveame.herokuapp.com/"> Inicio </a>
       </div>
 
     </div>
