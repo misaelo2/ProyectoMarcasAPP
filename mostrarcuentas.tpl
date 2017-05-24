@@ -33,7 +33,7 @@
         <h1>Este es el listado de tus cuentas , haz click en ellas si deseas obtener informacion mas detallada  </h1>
         <ul>
         %for elem in listacuentas :	
-        <li><strong><a href="https://bbuveame.herokuapp.com/cuentas/{{elem['links']['detail']['href'][-45:]}}">{{elem['id']}}</a></li>
+        <li><a href="https://bbuveame.herokuapp.com/cuentas/{{elem['links']['detail']['href'][-45:]}}">{{elem['id']}}</a></li>
         %end 
 	       </ul>
       </div>
