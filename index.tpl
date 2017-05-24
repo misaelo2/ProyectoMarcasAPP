@@ -34,10 +34,10 @@
         <p>Antes de comenzar , Recuerda que esta aplicacion es de prueba y solo es valida con unos usuarios inventados que pone a disposicion la API de BBVA</p>
         <p>A continuacion , Te dejo una lista de los distintos usuarios que puedes consultar (recuerda que para todos la contraseña es "123456")</p>
         <ul>
-          <li><strong>00000034B</li>
+          <li>00000034B</li>
           <li>00001000B</li>
           <li>46757760W</li>
-	        <li>78000000P</strong></li>
+	        <li>78000000P</li>
         </ul>
       </div>
     </div>
